@@ -1,351 +1,317 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:orientation="vertical"
+    android:background="#1C1C1E"
+    android:padding="12dp">
 
-    <!-- Display -->
-    <TextView
-        android:id="@+id/tvDisplay"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textColor="#FFFFFF"
-        android:textSize="80sp"
-        android:fontFamily="sans-serif-light"
-        android:gravity="end"
-        android:paddingHorizontal="24dp"
-        android:paddingBottom="12dp"
-        android:maxLines="1"
-        android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="30sp"
-        android:autoSizeMaxTextSize="80sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/row1"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <!-- Row 1: AC, +/-, %, ÷ -->
+    <!-- DISPLAY -->
     <LinearLayout
-        android:id="@+id/row1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/row2">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:gravity="bottom|end"
+        android:paddingBottom="16dp"
+        android:paddingEnd="16dp">
 
-        <Button
-            android:id="@+id/btnClear"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:layout_margin="4dp"
-            android:text="AC"
-            android:textSize="22sp"
-            android:textColor="#000000"
-            android:backgroundTint="#A5A5A5"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+        <TextView
+            android:id="@+id/tvExpressao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#8E8E93"
+            android:textSize="24sp"
+            android:gravity="end"/>
 
-        <Button
-            android:id="@+id/btnPlusMinus"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:layout_margin="4dp"
-            android:text="+/-"
-            android:textSize="22sp"
-            android:textColor="#000000"
-            android:backgroundTint="#A5A5A5"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
-
-        <Button
-            android:id="@+id/btnPercent"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:layout_margin="4dp"
-            android:text="%"
-            android:textSize="22sp"
-            android:textColor="#000000"
-            android:backgroundTint="#A5A5A5"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
-
-        <Button
-            android:id="@+id/btnDivide"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:layout_margin="4dp"
-            android:text="÷"
-            android:textSize="28sp"
+        <TextView
+            android:id="@+id/tvDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#FF9F0A"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:textSize="72sp"
+            android:gravity="end"
+            android:maxLines="1"
+            android:ellipsize="start"/>
 
     </LinearLayout>
 
-    <!-- Row 2: 7, 8, 9, × -->
+    <!-- LINHA 1: AC | +/- | % | ÷ -->
     <LinearLayout
-        android:id="@+id/row2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/row3">
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/btnLimpar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:text="AC"
+            android:textColor="#1C1C1E"
+            android:textSize="20sp"
+            android:backgroundTint="#A5A5A5"
+            android:stateListAnimator="@null"/>
+
+        <Button
+            android:id="@+id/btnInverter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:text="+/-"
+            android:textColor="#1C1C1E"
+            android:textSize="20sp"
+            android:backgroundTint="#A5A5A5"
+            android:stateListAnimator="@null"/>
+
+        <Button
+            android:id="@+id/btnPorcento"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:text="%"
+            android:textColor="#1C1C1E"
+            android:textSize="20sp"
+            android:backgroundTint="#A5A5A5"
+            android:stateListAnimator="@null"/>
+
+        <Button
+            android:id="@+id/btnDividir"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="÷"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:backgroundTint="#FF9500"
+            android:stateListAnimator="@null"/>
+
+    </LinearLayout>
+
+    <!-- LINHA 2: 7 | 8 | 9 | × -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
 
         <Button
             android:id="@+id/btn7"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
+            android:layout_marginEnd="10dp"
             android:text="7"
-            android:textSize="26sp"
             android:textColor="#FFFFFF"
+            android:textSize="24sp"
             android:backgroundTint="#333333"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:stateListAnimator="@null"/>
 
         <Button
             android:id="@+id/btn8"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
+            android:layout_marginEnd="10dp"
             android:text="8"
-            android:textSize="26sp"
             android:textColor="#FFFFFF"
+            android:textSize="24sp"
             android:backgroundTint="#333333"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:stateListAnimator="@null"/>
 
         <Button
             android:id="@+id/btn9"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
+            android:layout_marginEnd="10dp"
             android:text="9"
-            android:textSize="26sp"
             android:textColor="#FFFFFF"
+            android:textSize="24sp"
             android:backgroundTint="#333333"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:stateListAnimator="@null"/>
 
         <Button
-            android:id="@+id/btnMultiply"
+            android:id="@+id/btnMultiplicar"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
             android:text="×"
-            android:textSize="28sp"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#FF9F0A"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:textSize="28sp"
+            android:backgroundTint="#FF9500"
+            android:stateListAnimator="@null"/>
 
     </LinearLayout>
 
-    <!-- Row 3: 4, 5, 6, − -->
+    <!-- LINHA 3: 4 | 5 | 6 | − -->
     <LinearLayout
-        android:id="@+id/row3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/row4">
+        android:layout_marginBottom="10dp">
 
         <Button
             android:id="@+id/btn4"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
+            android:layout_marginEnd="10dp"
             android:text="4"
-            android:textSize="26sp"
             android:textColor="#FFFFFF"
+            android:textSize="24sp"
             android:backgroundTint="#333333"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:stateListAnimator="@null"/>
 
         <Button
             android:id="@+id/btn5"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
+            android:layout_marginEnd="10dp"
             android:text="5"
-            android:textSize="26sp"
             android:textColor="#FFFFFF"
+            android:textSize="24sp"
             android:backgroundTint="#333333"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:stateListAnimator="@null"/>
 
         <Button
             android:id="@+id/btn6"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
+            android:layout_marginEnd="10dp"
             android:text="6"
-            android:textSize="26sp"
             android:textColor="#FFFFFF"
+            android:textSize="24sp"
             android:backgroundTint="#333333"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:stateListAnimator="@null"/>
 
         <Button
-            android:id="@+id/btnSubtract"
+            android:id="@+id/btnSubtrair"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
             android:text="−"
-            android:textSize="28sp"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#FF9F0A"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:textSize="28sp"
+            android:backgroundTint="#FF9500"
+            android:stateListAnimator="@null"/>
 
     </LinearLayout>
 
-    <!-- Row 4: 1, 2, 3, + -->
+    <!-- LINHA 4: 1 | 2 | 3 | + -->
     <LinearLayout
-        android:id="@+id/row4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/row5">
+        android:layout_marginBottom="10dp">
 
         <Button
             android:id="@+id/btn1"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
+            android:layout_marginEnd="10dp"
             android:text="1"
-            android:textSize="26sp"
             android:textColor="#FFFFFF"
+            android:textSize="24sp"
             android:backgroundTint="#333333"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:stateListAnimator="@null"/>
 
         <Button
             android:id="@+id/btn2"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
+            android:layout_marginEnd="10dp"
             android:text="2"
-            android:textSize="26sp"
             android:textColor="#FFFFFF"
+            android:textSize="24sp"
             android:backgroundTint="#333333"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:stateListAnimator="@null"/>
 
         <Button
             android:id="@+id/btn3"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
+            android:layout_marginEnd="10dp"
             android:text="3"
-            android:textSize="26sp"
             android:textColor="#FFFFFF"
+            android:textSize="24sp"
             android:backgroundTint="#333333"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:stateListAnimator="@null"/>
 
         <Button
-            android:id="@+id/btnAdd"
+            android:id="@+id/btnSomar"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
             android:text="+"
-            android:textSize="28sp"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#FF9F0A"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:textSize="28sp"
+            android:backgroundTint="#FF9500"
+            android:stateListAnimator="@null"/>
 
     </LinearLayout>
 
-    <!-- Row 5: 0 (largo), ., = -->
+    <!-- LINHA 5: 0 (largo) | . | = -->
     <LinearLayout
-        android:id="@+id/row5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal"
-        android:paddingHorizontal="8dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_marginBottom="8dp">
 
         <Button
             android:id="@+id/btn0"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="2"
-            android:layout_margin="4dp"
+            android:layout_marginEnd="10dp"
             android:text="0"
-            android:textSize="26sp"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#333333"
+            android:textSize="24sp"
             android:gravity="center_vertical|start"
             android:paddingStart="28dp"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
-
-        <Button
-            android:id="@+id/btnDot"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:layout_margin="4dp"
-            android:text="."
-            android:textSize="26sp"
-            android:textColor="#FFFFFF"
             android:backgroundTint="#333333"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:stateListAnimator="@null"/>
 
         <Button
-            android:id="@+id/btnEquals"
+            android:id="@+id/btnPonto"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="4dp"
-            android:text="="
-            android:textSize="28sp"
+            android:layout_marginEnd="10dp"
+            android:text="."
             android:textColor="#FFFFFF"
-            android:backgroundTint="#FF9F0A"
-            android:stateListAnimator="@null"
-            style="@style/Widget.MaterialComponents.Button" />
+            android:textSize="28sp"
+            android:backgroundTint="#333333"
+            android:stateListAnimator="@null"/>
+
+        <Button
+            android:id="@+id/btnIgual"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="="
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:backgroundTint="#FF9500"
+            android:stateListAnimator="@null"/>
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
